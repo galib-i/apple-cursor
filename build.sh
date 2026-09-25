@@ -1,7 +1,7 @@
 #!/bin/bash
 # A script for preparing binaries of Apple Cursors, created by Abdulkaiz Khatri.
 
-version="v1.0.0"
+version="v1.0.1"
 
 error() (
   set -o pipefail

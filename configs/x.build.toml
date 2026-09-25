@@ -1,10 +1,10 @@
 [theme]
 name = 'macOS'
 comment = 'macOS Xcursors (fork of ful1e5/apple_cursor)'
-website = 'https://github.com/galib-i/apple_cursor'
+website = 'https://github.com/galib-i/apple-cursor'
 
 [config]
-bitmaps_dir = ''   # This config will assigned with `ctgen -d <path>`
+bitmaps_dir = '' # This config will assigned with `ctgen -d <path>`
 out_dir = '../themes'
 platforms = 'x11'
 
@@ -86,12 +86,7 @@ png = 'crossed_circle.png'
 x_hotspot = 56
 y_hotspot = 17
 x11_name = 'crossed_circle'
-x11_symlinks = [
-  "03b6e0fcb3499374a867c041f52298f0",
-  "not-allowed",
-  "forbidden",
-  "circle",
-]
+x11_symlinks = ["03b6e0fcb3499374a867c041f52298f0", "not-allowed", "forbidden", "circle"]
 
 [cursors.crosshair]
 png = 'crosshair.png'

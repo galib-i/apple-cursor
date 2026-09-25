@@ -2,7 +2,6 @@
 
 Open source macOS Cursors (with themed hands) for `Windows` and `Linux` with _HiDPI Support_.
 
-
 <p align="center">
   <img width="49%" alt="Mac macOS cursors" src="https://github.com/user-attachments/assets/75237d3f-0e16-40ca-8791-d0334395736f" />
   <img width="49%" alt="Windows macOS cursors" src="https://github.com/user-attachments/assets/87b9ae21-4f72-4a9d-9f84-990a267f589a" />
@@ -13,10 +12,13 @@ Open source macOS Cursors (with themed hands) for `Windows` and `Linux` with _Hi
 > All cursor SVG files are found in the [svg](./svg) directory and the original ones are also on [Figma](https://www.figma.com/file/OZw8Ylb9xPFw9h1uZYSMFa/apple_cursor?type=design&node-id=73%3A2&mode=design&t=dLILPgJJrLKeAcTE-1).
 
 ## Get Started
-Download the latest release from [Releases](https://github.com/galib-i/apple_cursor/releases).
+
+Download the latest release from [Releases](https://github.com/galib-i/apple-cursor/releases).
 
 ### Linux/X11
+
 To install:
+
 ```bash
 tar -xvf macOS.tar.xz                      # extract `.tar.xz`
 
@@ -29,35 +31,41 @@ sudo mv macOS macOS-White /usr/share/icons/
 ```
 
 To uninstall:
+
 ```bash
 rm -rf ~/.icons/macOS*                     # Remove from local users
 sudo rm -rf /usr/share/icons/macOS*        # Remove from all users
 ```
 
 ### Windows
+
 To install:
+
 1. Extract the downloaded `.zip` file.
 2. Open the extracted directory and choose your preferred size folder (e.g., `macOS-Regular-Windows`).
-3. Right-click `install.inf` and click *Install*.
-4. Open `Control Panel > Personalisation and Appearance > Change mouse pointers`, select the new scheme and *Apply*.
+3. Right-click `install.inf` and click _Install_.
+4. Open `Control Panel > Personalisation and Appearance > Change mouse pointers`, select the new scheme and _Apply_.
 
 To uninstall, run `uninstall.bat`, or navigate through the Registry Editor: `HKEY_CURRENT_USER > Control Panel > Cursors > Schemes` and right-clicking the style to uninstall.
 
 ## Development
+
 To build and run this project from source, you will need:
+
 - Python 3.8 or higher
 - [uv](https://github.com/astral-sh/uv) (recommended) or pip
 - [clickgen](https://github.com/ful1e5/clickgen) >= 2.2.2
 - [resvg-py](https://pypi.org/project/resvg-py/)
-  
+
 ```bash
-git clone https://github.com/galib-i/apple_cursor
-cd apple_cursor
+git clone https://github.com/galib-i/apple-cursor
+cd apple-cursor
 uv pip install clickgen resvg-py
 bash build.sh
 ```
 
 Create custom themes (found in the `themes` directory) by:
+
 1. Rendering SVG files to PNG files (via `render.py`).
 2. Building cursor themes from PNG files (via `ctgen`).
 
@@ -89,6 +97,7 @@ Then run:
 ```bash
 python render.py
 ```
+
 </details>
 
 <details>
@@ -105,6 +114,7 @@ You can also customise the output directory with `-o` option:
 ```bash
 ctgen configs/win_rg.build.toml -s 16 -p windows -d "bitmaps/macOS" -o "out" -n "macOS" -c "macOS Cursors with size 16"
 ```
+
 </details>
 
 <details>
@@ -121,6 +131,7 @@ You can also assign multiple sizes to `ctgen` for XCursors build:
 ```bash
 ctgen configs/x.build.toml -s 16 24 32 -p x11 -d "bitmaps/macOS" -n "macOS" -c "Custom Sizes macOS XCursors"
 ```
+
 </details>
 
 <details>
@@ -147,10 +158,11 @@ Then render and build:
 python render.py
 ctgen configs/x.build.toml -d "bitmaps/macOS-Hacker" -n "macOS-Hacker" -c "Green and Black macOS cursors."
 ```
+
 </details>
 
-
 ## Cursor Sizes
+
 ### Xcursor:
 
 <kbd>16</kbd>
@@ -180,7 +192,8 @@ ctgen configs/x.build.toml -d "bitmaps/macOS-Hacker" -n "macOS-Hacker" -c "Green
 |  256 |   170.666 → 171 |   204.8 → 205 |               256 |
 
 ## Colours
-| Theme | Base Colour | Outline Colour |
-|---|---|---|
+
+| Theme       | Base Colour       | Outline Colour    |
+| ----------- | ----------------- | ----------------- |
 | **Default** | `#000000` (Black) | `#FFFFFF` (White) |
-| **White** | `#FFFFFF` (White) | `#000000` (Black) |
+| **White**   | `#FFFFFF` (White) | `#000000` (Black) |

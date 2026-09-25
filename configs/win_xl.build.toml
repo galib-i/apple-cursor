@@ -1,10 +1,10 @@
 [theme]
 name = 'macOS-Extra-Large'
 comment = 'macOS Extra Large Windows cursors (fork of ful1e5/apple_cursor)'
-website = 'https://github.com/galib-i/apple_cursor'
+website = 'https://github.com/galib-i/apple-cursor'
 
 [config]
-bitmaps_dir = ''      # This config will assigned with `ctgen -d <path>`
+bitmaps_dir = '' # This config will assigned with `ctgen -d <path>`
 out_dir = '../themes'
 platforms = 'windows'
 
