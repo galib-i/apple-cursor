@@ -1,6 +1,6 @@
 # Apple Cursor
 
-Open source macOS Cursors (with themed hands) for `Windows` and `Linux` with _HiDPI Support_.
+MacOS Cursors with themed hands, for `Linux` and `Windows` (with _HiDPI Support_).
 
 <p align="center">
   <img width="49%" alt="Mac macOS cursors" src="https://github.com/user-attachments/assets/75237d3f-0e16-40ca-8791-d0334395736f" />
@@ -16,52 +16,79 @@ Open source macOS Cursors (with themed hands) for `Windows` and `Linux` with _Hi
 Download the latest release from [Releases](https://github.com/galib-i/apple-cursor/releases).
 
 ### Linux/X11
-
-To install:
-
+Extract the release `.tar.xz` to your icons directory:
 ```bash
-tar -xvf macOS.tar.xz                      # extract `.tar.xz`
-
-# Install to local users
+tar -xvf macOS.tar.xz
 mkdir -p ~/.icons
-mv macOS macOS-White ~/.icons/
-
-# OR Install to all users
-sudo mv macOS macOS-White /usr/share/icons/
+mv macOS macOS-White ~/.icons/                 # Install for local user
+# sudo mv macOS macOS-White /usr/share/icons/  # OR Install for all users
 ```
 
-To uninstall:
+Or, clone this repository and use the included build and install script:
+```bash
+git clone https://github.com/galib-i/apple-cursor
+cd apple-cursor
+pip install clickgen resvg-py         # Install dependencies
+./build.sh
+./install-linux.sh install local      # ~/.icons, no sudo
+./install-linux.sh install global     # /usr/share/icons, with sudo
+```
+
+Once installed, apply the new cursor theme through the appearance or mouse settings.
+
+To remove it:
 
 ```bash
-rm -rf ~/.icons/macOS*                     # Remove from local users
-sudo rm -rf /usr/share/icons/macOS*        # Remove from all users
+# If installed manually:
+rm -rf ~/.icons/macOS*                # Remove from local user
+sudo rm -rf /usr/share/icons/macOS*   # Remove from all users
+
+# If installed via script:
+./install-linux.sh uninstall local    # or ./install-linux.sh uninstall global, with sudo
 ```
 
 ### Windows
+Extract the downloaded `.zip` file. 
+1. Open the extracted directory and choose your preferred size folder (e.g., `macOS-Regular-Windows`).
+2. Right-click `install.inf` and click _Install_.
+3. Open `Control Panel > Personalisation and Appearance > Change mouse pointers`
+4. Select the new scheme from the dropdown and _Apply_.
 
-To install:
+To remove it, either:
+- Using the script: run the included `uninstall.bat`.
+- Manually: open Registry Editor, navigate to `HKEY_CURRENT_USER > Control Panel > Cursors > Schemes`, right-click the style to uninstall.
 
-1. Extract the downloaded `.zip` file.
-2. Open the extracted directory and choose your preferred size folder (e.g., `macOS-Regular-Windows`).
-3. Right-click `install.inf` and click _Install_.
-4. Open `Control Panel > Personalisation and Appearance > Change mouse pointers`, select the new scheme and _Apply_.
 
-To uninstall, run `uninstall.bat`, or navigate through the Registry Editor: `HKEY_CURRENT_USER > Control Panel > Cursors > Schemes` and right-clicking the style to uninstall.
+## Themes & Sizes
+### Colours
+| Theme       | Base Colour       | Outline Colour    |
+| ----------- | ----------------- | ----------------- |
+| **Default** | `#000000` (Black) | `#FFFFFF` (White) |
+| **White**   | `#FFFFFF` (White) | `#000000` (Black) |
+
+### Sizes
+
+#### Linux/X11:<kbd>16</kbd><kbd>20</kbd><kbd>22</kbd><kbd>24</kbd><kbd>28</kbd><kbd>32</kbd><kbd>40</kbd><kbd>48</kbd><kbd>56</kbd><kbd>64</kbd><kbd>72</kbd><kbd>80</kbd><kbd>88</kbd><kbd>96</kbd>
+
+#### Windows:
+| Base Size | Regular (× ²⁄₃) | Large (× ⁴⁄₅) | Extra-Large (× 1) |
+| ---: | --------------: | ------------: | ----------------: |
+|   **32** |     21.333 → 22 |     25.6 → 26 |                32 |
+|   **48** |              32 |     38.4 → 39 |                48 |
+|   **64** |     42.666 → 43 |     51.2 → 52 |                64 |
+|   **96** |              64 |     76.8 → 77 |                96 |
+|  **128** |     85.333 → 86 |   102.4 → 103 |               128 |
+|  **256** |   170.666 → 171 |   204.8 → 205 |               256 |
 
 ## Development
 
-To build and run this project from source, you will need:
-
-- Python 3.8 or higher
-- [uv](https://github.com/astral-sh/uv) (recommended) or pip
-- [clickgen](https://github.com/ful1e5/clickgen) >= 2.2.2
-- [resvg-py](https://pypi.org/project/resvg-py/)
+To build this project from source, you will need Python 3.8+ and the [clickgen](https://github.com/ful1e5/clickgen) (>= 2.2.2) and [resvg-py](https://pypi.org/project/resvg-py/) packages. Using [uv](https://github.com/astral-sh/uv) is recommended (or `pip`).
 
 ```bash
 git clone https://github.com/galib-i/apple-cursor
 cd apple-cursor
 uv pip install clickgen resvg-py
-bash build.sh
+./build.sh
 ```
 
 Create custom themes (found in the `themes` directory) by:
@@ -161,39 +188,6 @@ ctgen configs/x.build.toml -d "bitmaps/macOS-Hacker" -n "macOS-Hacker" -c "Green
 
 </details>
 
-## Cursor Sizes
+##
 
-### Xcursor:
-
-<kbd>16</kbd>
-<kbd>20</kbd>
-<kbd>22</kbd>
-<kbd>24</kbd>
-<kbd>28</kbd>
-<kbd>32</kbd>
-<kbd>40</kbd>
-<kbd>48</kbd>
-<kbd>56</kbd>
-<kbd>64</kbd>
-<kbd>72</kbd>
-<kbd>80</kbd>
-<kbd>88</kbd>
-<kbd>96</kbd>
-
-### Windows:
-
-| size | Regular (× ²⁄₃) | Large (× ⁴⁄₅) | Extra-Large (× 1) |
-| ---: | --------------: | ------------: | ----------------: |
-|   32 |     21.333 → 22 |     25.6 → 26 |                32 |
-|   48 |              32 |     38.4 → 39 |                48 |
-|   64 |     42.666 → 43 |     51.2 → 52 |                64 |
-|   96 |              64 |     76.8 → 77 |                96 |
-|  128 |     85.333 → 86 |   102.4 → 103 |               128 |
-|  256 |   170.666 → 171 |   204.8 → 205 |               256 |
-
-## Colours
-
-| Theme       | Base Colour       | Outline Colour    |
-| ----------- | ----------------- | ----------------- |
-| **Default** | `#000000` (Black) | `#FFFFFF` (White) |
-| **White**   | `#FFFFFF` (White) | `#000000` (Black) |
+_Licensed under the [GPLv3](LICENSE), inheriting from the original source code._
